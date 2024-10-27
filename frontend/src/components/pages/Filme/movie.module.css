@@ -1,0 +1,173 @@
+/* Estilos gerais */
+.body {
+    font-family: Arial, sans-serif;
+    margin: -26px;
+    padding: 0;
+    background-color: #0d2a56;
+    color: white;
+}
+
+header {
+    background-color: black;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.titulo {
+    text-align: center;
+    padding-top: 1%;
+    margin-top: 6%;
+}
+
+/* Alinhamento principal com flexbox */
+.alinha {
+    display: flex;
+    justify-content: center; /* Centraliza tanto a imagem quanto a div */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 20px;
+    gap: 40px; /* Espaçamento entre a imagem e a div */
+    flex-wrap: wrap; /* Para responsividade */
+}
+
+.img_film1 {
+    display: flex; /* Permite usar flexbox para centralização */
+    justify-content: center; /* Centraliza a imagem */
+    margin-left: 300px;
+}
+
+/* Estilo do pôster principal */
+.img_film1 img {
+    width: 300px;
+    height: 445px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Container principal */
+.sobreporfilm {
+    width: 1000px; /* Ajuste a largura conforme necessário */
+    background-color: #0000003f;
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    font-size: medium;
+    align-items: center;
+    margin: 0; /* Centraliza horizontalmente */
+    line-height: 0.5; /* Espaçamento entre linhas */
+}
+
+#inline{
+    line-height: 1.0; /* Espaçamento entre linhas */
+}
+
+/* Estilo para as avaliações */
+.avaliacoes {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Centraliza as divs de avaliações horizontalmente */
+    gap: 20px; /* Espaçamento entre as divs de avaliações */
+}
+
+
+
+.avaliacao_item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 1500px; /* Define uma largura fixa menor para cada avaliação */
+    line-height: 1.5; /* Espaçamento entre linhas */
+}
+
+.avaliacao_item p {
+    margin: 5px 0;
+}
+
+.avaliacao_item img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Seção de filmes relacionados */
+.related_movies {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #0000003f;
+    border-radius: 10px;
+    text-align: center;
+    width: 2000px;
+}
+
+.movie_list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.movie_item {
+    width: 300px;
+    text-align: center;
+}
+
+.movie_item img {
+    width: 100%;
+    height: 445px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.movie_item img:hover {
+    transform: scale(1.05);
+}
+
+.movie_item p {
+    margin-top: 10px;
+    color: white;
+}
+
+ul li::before {
+    content: "• ";
+    color: #0056b3;
+}
+
+.netflix{
+  
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .alinha {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-film1, .sobreporfilm {
+        max-width: 90%;
+    }
+
+    .movie-item {
+        width: 90%;
+    }
+}

@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('assets/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Header */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: white; 
+  z-index: 10;
+  background-color: black;
+}
+
+
+/* Navegação */
+nav ul {
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
+  display: flex; 
+  font-size: large;
+}
+
+nav ul li {
+  margin-left: 20px;
+  font-size: large;
+}
+
+nav a {
+  color: white; 
+  text-decoration: none; 
+  font-size: large;
+}
+
+/* Main */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Corrigido de 'left' para 'flex-start' */
+  justify-content: center;
+  /* height: 0%; Removido para permitir que o conteúdo determine a altura */
+  z-index: 10; 
+  color: white;
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li::before {
+  content: "• ";
+  color: #0056b3;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: #00a7b3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

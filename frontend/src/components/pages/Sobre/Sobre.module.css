@@ -1,0 +1,28 @@
+/* Sobrepor e Sobre */
+.sobre {
+    width: 650px; /* Pode ser ajustado via media queries */
+    position: relative;
+    top: 0px; 
+    background-color: rgba(0, 0, 0, 0.247);
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    font-size: medium;
+    align-items: center;
+    h2{
+        text-align: center;
+    }
+}
+
+.sobre p {
+    margin: 5px 0;
+}
+
+.sobre h3 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    color: #ffffff;
+}

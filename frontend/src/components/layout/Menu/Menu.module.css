@@ -1,0 +1,15 @@
+ /* Logo */
+ .logo {
+    font-size: 24px; 
+    text-align: center;
+    transition: .2s;
+}
+  
+.logo:hover{
+    opacity: 70%;
+  
+}
+  
+.logo a{
+    color:white;
+}

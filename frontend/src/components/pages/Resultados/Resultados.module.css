@@ -1,0 +1,90 @@
+.search_form {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 5px;
+    border-radius: 8px;
+    margin-left: 310px;
+    margin-top: 150px;
+    margin-bottom: 30px;
+}
+
+
+.search_form input {
+    border: none;
+    outline: none;
+    margin-right: 270px; /* Pode ser ajustado via media queries */
+    width: 280px;
+    justify-content: left;
+}
+
+
+
+.search_form  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+
+.search_form button:hover {
+    background-color: #0056b3;
+}
+
+/* Alinhamento das Divs */
+.alinha {
+    display: flex;
+    flex-direction: row; /* Corrigido de 'right' para 'row' */
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    gap: 10px;
+    margin-top: 0px;
+}
+
+.img_film img {
+    width: 300px;
+    height: 445px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Sobrepor e Sobre */
+.sobrepor{
+    width: 650px; /* Pode ser ajustado via media queries */
+    position: relative;
+    top: 0px; 
+    background-color: rgba(0, 0, 0, 0.247);
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    font-size: medium;
+    align-items: center;
+    h2{
+        text-align: center;
+    }
+}
+
+.sobrepor button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    width: 300px; 
+    height: 40px;
+    margin-left: 150px;
+}
+
+.sobrepor1{
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.247);
+    border-radius: 15px;
+    text-align: center;
+    float:inline-start;
+}

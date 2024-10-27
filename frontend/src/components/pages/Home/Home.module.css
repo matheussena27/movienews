@@ -1,0 +1,33 @@
+.search_form_home {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 5px;
+    border-radius: 8px;
+ 
+}
+
+.search_form_home input {
+    border: none;
+    outline: none;
+    margin-right: 270px; /* Pode ser ajustado via media queries */
+    width: 280px;
+    justify-content: left;
+}
+
+.search_form_home button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.search_form_home button:hover {
+    background-color: #0056b3;
+}
+
+.pesquisa{
+    text-align: center;
+}
