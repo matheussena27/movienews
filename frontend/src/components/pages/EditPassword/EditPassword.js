@@ -7,7 +7,7 @@ function EditPassword (){
     const [novaSenha, setNovaSenha] = useState("");
     const [mensagem, setMensagem] = useState("");
 
-    const handleEditPassword = async (e) => {
+    const handleEditPassword = async (e) => { //aqui estou acessando o back para alterar a senha
         e.preventDefault();
         try {
             const response = await fetch("http://localhost:8000/api/edit-password/", {

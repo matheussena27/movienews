@@ -20,67 +20,72 @@ from rest_framework.permissions import IsAuthenticated
 
 User = get_user_model()
 
+#funcao para editar a senha
 class EditPasswordAPIView(APIView):
     def post(self, request):
         usuario = request.data.get("usuario")
-        nova_senha = request.data.get("nova_senha")
+        nova_senha = request.data.get("nova_senha") #pega as informacoes da request
 
         try:
-            user = User.objects.get(username=usuario)
+            user = User.objects.get(username=usuario) #verificando se o usuario existe
             user.set_password(nova_senha)
-            user.save()
+            user.save() #caso o usuario exista, sera salvo a nova senha
             return Response({"mensagem": "Senha alterada com sucesso!"}, status=status.HTTP_200_OK)
         except User.DoesNotExist:
             return Response({"erro": "Usuário não encontrado."}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({"erro": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
+#funcao para criar novo usuario
 class RegisterAPIView(APIView):
     def post(self, request):
-        serializer = UserSerializer(data=request.data)
+        serializer = UserSerializer(data=request.data) #pegando informacoes da request
         if serializer.is_valid():
-            print("teste")
             serializer.save()  # Salva o usuário
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+#funcao para fazer o login
 @api_view(['POST'])
 def login_view(request):
     username = request.data.get('username')
-    password = request.data.get('password')
+    password = request.data.get('password') #pegando informacoes da request
 
-    user = authenticate(username=username, password=password)
+    user = authenticate(username=username, password=password) #autenticando o usuario
 
     if user is not None:
         refresh = RefreshToken.for_user(user)
         return Response({
             'refresh': str(refresh),
             'token': str(refresh.access_token),
-        })
+        }) #caso seja validado, sera criado um token de acesso
     return Response({'error': 'Credenciais inválidas'}, status=status.HTTP_400_BAD_REQUEST)
 
+#retorna busca de filmes
 class FilmesAPIView(APIView):
     def get(self, request):
         api = funcoesApi()
-        nome_filme = request.query_params.get('filme')  # Captura o nome do filme da query string
+        nome_filme = request.query_params.get('filme')
         return JsonResponse(api.lista_filme(nome_filme), safe=False)
 
+#retorna as informacoes de um filme especifico
 class FilmeAPIView(APIView):
     def get(self, request):
         api = funcoesApi()
-        nome_filme = request.query_params.get('filme')  # Captura o nome do filme da query string
+        nome_filme = request.query_params.get('filme')
 
         return JsonResponse(api.dados_filme(nome_filme), safe=False)
-    
+
+#funcao para recomendacao de filme    
 class RecomendacaoAPIView(APIView):
     def get(self, request):
         api = funcoesApi()
-        nome_filme = request.query_params.get('filme')  # Captura o nome do filme da query string
+        nome_filme = request.query_params.get('filme') 
 
-        recomendacoes =  api.ia(nome_filme)
+        recomendacoes =  api.ia(nome_filme) #aqui chama a funcao de recomendacao
 
         recomendacoes_final = []
-        for recomendacao in recomendacoes:
+        for recomendacao in recomendacoes: #faz um for para pegar as informacoes de cada filme que esta na lista de recomendacoes
             print(recomendacao)
             recomendacao_info = api.dados_filme(recomendacao["title"])
 
@@ -89,7 +94,7 @@ class RecomendacaoAPIView(APIView):
         
         return JsonResponse(recomendacoes_final, safe=False,  json_dumps_params={'ensure_ascii': False})
         
-        
+#funcoes da api        
 class funcoesApi:
 
     def dados_filme(self, nome_filme): #api para coletar informacoes completas de filmes
@@ -117,7 +122,8 @@ class funcoesApi:
             return informacoes_filme
         else:
             return None
-        
+
+ #aqui busca recomendacoes de filme que outros usuarios gostaram       
     def ia(self, nome_filme):
         caminho_filmes = os.path.join(settings.BASE_DIR, 'static', 'csv', 'filmes.csv')
         caminho_ratings = os.path.join(settings.BASE_DIR, 'static', 'csv', 'ratings.csv')

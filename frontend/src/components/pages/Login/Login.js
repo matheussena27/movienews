@@ -12,7 +12,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
   
-      // Requisição para o backend
+      // aqui verifica no back se o usuario existe
       try {
         const response = await fetch('http://localhost:8000/api/login/', {
           method: 'POST',
@@ -25,7 +25,7 @@ const Login = () => {
           }),
         });
   
-        if (response.ok) {
+        if (response.ok) { //se o usuario existir, ele sera redirecionado para a home
           const data = await response.json();
           // Armazenar o token de autenticação
           localStorage.setItem('token', data.token);

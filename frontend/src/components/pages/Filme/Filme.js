@@ -23,7 +23,7 @@ const Filme = () => {
         { Source: "Metacritic", Value: "N/A" },
         ];
 
-    useEffect(() => {
+    useEffect(() => { //aqui é buscado no back as informacoes do filme e recomendacoes
         const fetchFilme = async () => {
             if (nomeFilme) {
                 setLoading(true); // Começa o carregamento
@@ -71,7 +71,7 @@ const Filme = () => {
     // Verifica se o filme está carregado
     if (!filme) return <div>Nenhum filme encontrado.</div>;
 
-    // Função para normalizar as notas
+    // Função para padronizar as avaliacoes
     const normalizeRating = (source, value) => {
         const ratingValue = parseFloat(value);
         switch (source) {
@@ -86,7 +86,7 @@ const Filme = () => {
         }
     };
 
-    // Função para calcular as estrelas
+    // Função para calcular as estrelas das avaliacoes
     const getStars = (normalizedRating) => {
         const stars = Math.min(Math.floor(normalizedRating), 5); // Limita a 5 estrelas
         const starArray = [];
